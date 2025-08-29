@@ -44,7 +44,7 @@ export default function MenuTop() {
         {/* Bell */}
         <button className="relative">
           <Image src="/icons/bell.svg" width={20} height={20} alt="bell" />
-          <span className="absolute -top-0.5 right-0 w-3 h-3 bg-[#FF9040] border-4 border-[#0F111D] rounded-full"></span>
+          <div className="absolute -top-0.5 right-0 w-3.5 h-3.5 bg-[#FF9040] border-4 border-[#0F111D] rounded-full animate-pulse" />
         </button>
 
         {/* Profile */}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bai_Jamjuree, Poppins } from "next/font/google";
+import Image from "next/image";
 import MenuTop from "./components/shared/menu-top";
 import "./globals.css";
 
@@ -28,8 +29,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${baiJamjuree.variable} bg-[#0B0D1B] text-white antialiased`}
+        className={`${poppins.variable} ${baiJamjuree.variable} bg-[#0B0D1B] text-white antialiased relative`}
       >
+        <Image
+          src="/images/top-overlay.png"
+          className="fixed top-0 left-0 w-full h-full pointer-events-none animate-pulse-slow"
+          alt="top-overlay"
+          width={1000}
+          height={1000}
+        />
         <MenuTop />
         {children}
       </body>
