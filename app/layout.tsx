@@ -17,7 +17,7 @@ const baiJamjuree = Bai_Jamjuree({
 });
 
 export const metadata: Metadata = {
-  title: "Dash Markets",
+  title: "Dash Markets Game",
   description: "Dash Markets Game Portal",
 };
 
@@ -32,9 +32,9 @@ export default function RootLayout({
         className={`${poppins.variable} ${baiJamjuree.variable} bg-[#0B0D1B] text-white antialiased relative`}
       >
         <Image
-          src="/images/top-overlay.png"
+          src="/images/menu-top-overlay.png"
           className="fixed top-0 left-0 w-full h-full pointer-events-none z-40"
-          alt="top-overlay"
+          alt="menu-top-overlay"
           width={1000}
           height={1000}
         />

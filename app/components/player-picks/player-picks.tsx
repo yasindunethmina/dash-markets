@@ -131,7 +131,7 @@ export default function PlayerPicks() {
       playerId: "1",
       playerName: "David",
       frame: "/icons/hexagon-frame-pink-small.svg",
-      avatarUrl: "/icons/polygon-profile-1.svg",
+      avatarUrl: "/icons/profile.svg",
       accentColor: "pink",
       picks: [
         { id: "1", name: "Bitcoin", symbol: "BTC" },

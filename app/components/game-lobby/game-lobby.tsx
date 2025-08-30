@@ -22,7 +22,7 @@ const players: Array<PlayerDataT | null> = [
     isActive: true,
     hasSponsorship: true,
     frame: "/icons/hexagon-frame-pink.svg",
-    avatarUrl: "/icons/polygon-profile-1.svg",
+    avatarUrl: "/icons/profile.svg",
     isLoading: false,
     buttonVariant: "outline-pink",
   },
