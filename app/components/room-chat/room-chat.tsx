@@ -86,13 +86,13 @@ export default function RoomChat() {
       </div>
 
       {/* INPUT */}
-      <div className="flex-shrink-0 flex items-center gap-x-2.5 h-11 mx-6 my-5">
+      <div className="relative top-1 flex-shrink-0 flex items-center gap-x-2.5 h-11 mx-6 my-5">
         <div className="relative flex items-center gap-x-5 flex-1 bg-background/7 hover:bg-background/10 focus-within:bg-background/10 transition-colors duration-300 rounded-xl py-2.5 pl-3.5 pr-12 cursor-text">
           <input
             className="w-full bg-transparent outline-none font-medium text-base text-white placeholder:text-tertiary caret-tertiary"
             placeholder="Type Message here..."
           />
-          <button className="absolute right-3.5 top-1/2 -translate-y-1/2 text-tertiary hover:text-white transition-colors duration-300">
+          <button className="absolute right-3.5 top-1/2 -translate-y-1/2 text-tertiary hover:text-background transition-colors duration-300">
             <LuSmile className="w-5 h-5" />
           </button>
         </div>

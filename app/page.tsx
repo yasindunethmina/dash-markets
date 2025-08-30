@@ -6,7 +6,7 @@ import TopNav from "./components/shared/top-nav";
 
 export default function Home() {
   return (
-    <main className="flex flex-col h-[calc(100vh-70px)] w-full">
+    <main className="flex flex-col h-[calc(100vh-72px)] w-full">
       {/* Top navigation stays fixed */}
       <TopNav />
 
