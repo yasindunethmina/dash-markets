@@ -71,7 +71,7 @@ export default function Button({
 
   return (
     <button
-      className={cn(cfg.className, className, "cursor-pointer outline-none")}
+      className={cn(cfg.className, className)}
       style={{ ...cfg.style, ...style }}
       {...restProps}
     >

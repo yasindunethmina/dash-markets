@@ -113,6 +113,10 @@ h1 {
   font-family: var(--font-bai-jamjuree);
 }
 
+button {
+  outline: none;
+  cursor: pointer;
+}
 /* Scrollbar */
 /* Scrollbar styles for WebKit browsers (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
