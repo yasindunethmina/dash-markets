@@ -124,6 +124,7 @@
     }
   }
 
+  /* Countdown timer animation */
   @keyframes slide-out-and-return {
     0% {
       transform: translateX(0);
@@ -235,6 +236,7 @@
     will-change: transform, opacity;
   }
 
+  /* Countdown timer animation */
   .animate-drop-out {
     animation: drop-out 0.3s ease-in forwards;
     will-change: transform, opacity;
@@ -268,30 +270,31 @@ button {
   cursor: pointer;
 }
 
-/* Scrollbar */
-/* Scrollbar styles for WebKit browsers (Chrome, Edge, Safari) */
+/* Scrollbar for WebKit (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
   width: 8px;
   background: transparent;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #ced7ff20;
-  border-radius: 8px;
-  transition: background 0.2s;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #ced7ff30;
-}
-
-/* Optional: scrollbar track for better contrast */
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 
-/* Scrollbar styles for Firefox */
+::-webkit-scrollbar-thumb {
+  -webkit-appearance: none;
+  border: none;
+  background-color: rgba(206, 215, 255, 0.2);
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+  background-color: rgba(206, 215, 255, 0.2);
+}
+
+/* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #ced7ff20 transparent;
+  scrollbar-color: rgba(206, 215, 255, 0.2) transparent;
 }
