@@ -33,7 +33,7 @@ export default function RoomChat() {
     <div className="h-full flex flex-col">
       {/* HEADER */}
       <div className="flex-shrink-0 mt-5 mx-6 flex items-center gap-x-2.5 h-11 mb-5">
-        <div className="flex-1 justify-between py-2.5 px-3.5 bg-background/7 border border-background/10 rounded-xl flex items-center">
+        <div className="flex-1 justify-between py-2.5 px-3.5 bg-background/7 rounded-xl flex items-center">
           <p className="font-semibold text-base">Room Chat</p>
           <div className="flex items-center gap-x-1.5">
             <span className="w-1.5 h-1.5 rounded-full animate-pulse bg-[#FF4EA7]" />
