@@ -22,8 +22,11 @@ export default function TopNav() {
         <button className="font-bold text-sm leading-[1.4] whitespace-nowrap">
           WAITING ROOM
         </button>
-        <button className="font-bold text-sm leading-[1.4] text-tertiary whitespace-nowrap">
+        <button className="relative group font-bold text-sm leading-[1.4] text-tertiary whitespace-nowrap">
           BETS
+          <span className="absolute bottom-full left-1/2 mb-1 -translate-x-1/2 bg-background/12 text-white text-xs font-medium rounded-md px-2 py-1 opacity-0 pointer-events-none transition-opacity duration-200 group-hover:opacity-100">
+            Coming Soon
+          </span>
         </button>
       </div>
 
