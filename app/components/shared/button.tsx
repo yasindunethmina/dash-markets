@@ -14,9 +14,8 @@ type VariantConfigT = {
 
 const variants: Record<VariantKeyT, VariantConfigT> = {
   primary: {
-    // filled primary
     className:
-      "shadow-[inset_0px_-2px_0px_0px_rgba(0,0,0,0.22),inset_0px_1px_0px_0px_rgba(255,255,255,0.39)] outline-none",
+      "shadow-[inset_0px_-2px_0px_0px_rgba(0,0,0,0.22),inset_0px_1px_0px_0px_rgba(255,255,255,0.39)]",
     style: {
       background:
         "linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 100%), #7852FF",
@@ -25,21 +24,33 @@ const variants: Record<VariantKeyT, VariantConfigT> = {
   },
   "outline-purple": {
     className:
-      "border border-primary bg-primary/4 text-primary outline-none " +
-      "[box-shadow:0_0_16.4px_0_rgba(127,17,224,0.2),0_0_18.9px_0_rgba(127,17,224,0.2)_inset] " +
+      "border border-primary text-primary " +
+      "[box-shadow:0_0_16.4px_0_rgba(127,17,224,0.2),0_0_18.9px_0_rgba(127,17,224,0.2)_inset,inset_0_0_24px_rgba(127,17,224,0.15)] " +
       "animate-purple-glow",
+    style: {
+      background:
+        "linear-gradient(135deg, rgba(127,17,224,0.08) 0%, rgba(127,17,224,0.02) 50%, rgba(127,17,224,0.08) 100%), rgba(127,17,224,0.04)",
+    },
   },
   "outline-pink": {
     className:
-      "border border-pink bg-pink/4 text-pink outline-none " +
-      "[box-shadow:0_0_16.4px_0_rgba(255,82,232,0.2),0_0_18.9px_0_rgba(255,82,232,0.2)_inset] " +
+      "border border-pink text-pink " +
+      "[box-shadow:0_0_16.4px_0_rgba(255,82,232,0.2),0_0_18.9px_0_rgba(255,82,232,0.2)_inset,inset_0_0_24px_rgba(255,82,232,0.15)] " +
       "animate-pink-glow",
+    style: {
+      background:
+        "linear-gradient(135deg, rgba(255,82,232,0.08) 0%, rgba(255,82,232,0.02) 50%, rgba(255,82,232,0.08) 100%), rgba(255,82,232,0.04)",
+    },
   },
   "outline-cyan": {
     className:
-      "border border-cyan bg-cyan/4 text-cyan outline-none " +
-      "[box-shadow:0_0_16.4px_0_rgba(16,249,254,0.2),0_0_18.9px_0_rgba(16,249,254,0.2)_inset] " +
+      "border border-cyan text-cyan " +
+      "[box-shadow:0_0_16.4px_0_rgba(16,249,254,0.2),0_0_18.9px_0_rgba(16,249,254,0.2)_inset,inset_0_0_24px_rgba(16,249,254,0.15)] " +
       "animate-cyan-glow",
+    style: {
+      background:
+        "linear-gradient(135deg, rgba(16,249,254,0.08) 0%, rgba(16,249,254,0.02) 50%, rgba(16,249,254,0.08) 100%), rgba(16,249,254,0.04)",
+    },
   },
 };
 
@@ -57,9 +68,10 @@ export default function Button({
   ...restProps
 }: ButtonProps) {
   const cfg = variants[variant];
+
   return (
     <button
-      className={cn(cfg.className, className)}
+      className={cn(cfg.className, className, "cursor-pointer outline-none")}
       style={{ ...cfg.style, ...style }}
       {...restProps}
     >

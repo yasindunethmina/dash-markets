@@ -1,7 +1,7 @@
 import GameInfoPanel from "./components/game-info-panel/game-info-panel";
 import GameLobby from "./components/game-lobby/game-lobby";
-import PlayerPicksSection from "./components/player-pick-section";
-import RoomChatPanel from "./components/room-chat-panel";
+import PlayerPicks from "./components/player-picks/player-picks";
+import RoomChat from "./components/room-chat/room-chat-panel";
 import TopNav from "./components/shared/top-nav";
 
 export default function Home() {
@@ -13,10 +13,10 @@ export default function Home() {
         <div className="flex-1 px-8 pt-[18px] space-y-[18px]">
           <GameInfoPanel />
           <GameLobby />
-          <PlayerPicksSection />
+          <PlayerPicks />
         </div>
 
-        <RoomChatPanel />
+        <RoomChat />
       </div>
     </main>
   );

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function RoomChatPanel() {
+export default function RoomChat() {
   return (
     <div className="w-[325px] py-5 px-6 space-y-5">
       {/* Header */}

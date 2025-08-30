@@ -14,13 +14,7 @@ type PlayerDataT = {
   buttonVariant: "primary" | "outline-pink" | "outline-purple";
 };
 
-type PlayerSlotProps = {
-  player?: PlayerDataT;
-  isWaiting?: boolean;
-  showSword?: boolean;
-};
-
-const players: (PlayerDataT | null)[] = [
+const players: Array<PlayerDataT | null> = [
   {
     id: "1",
     displayName: "DAVID",
@@ -70,83 +64,99 @@ const players: (PlayerDataT | null)[] = [
   },
 ];
 
+type PlayerSlotProps = {
+  player?: PlayerDataT;
+  showSword?: boolean;
+};
+
 const PlayerSlot = ({ player, showSword = true }: PlayerSlotProps) => {
+  const {
+    displayName = "",
+    hasSponsorship = false,
+    isActive = false,
+    frame = "/icons/hexagon-frame-loader.svg",
+    avatarUrl = "",
+    isLoading = false,
+    buttonVariant = "primary",
+  } = player || {};
+
+  const statusText = isActive ? "PICKING TOKENS..." : "WAITING FOR PLAYER";
+  const actionText = isActive ? "Place a bet" : "Join 100$";
+
   return (
     <div className="relative col-span-1 w-full flex flex-col items-center border-r border-background/6">
+      {/* Sponsor badge */}
       <div
         className={cn(
-          "rounded-sm text-xs font-semibold opacity-0 bg-primary/10 text-primary leading-[1.5] mt-4 px-2 py-1 mb-10",
+          "rounded-sm text-xs font-semibold bg-primary/10 text-primary leading-[1.5] mt-4 px-2 py-1 mb-10",
           {
-            "opacity-100": player?.hasSponsorship,
-            "opacity-0": !player?.hasSponsorship,
+            "opacity-100": hasSponsorship,
+            "opacity-0": !hasSponsorship,
           }
         )}
       >
         SPONSOR
       </div>
 
+      {/* Avatar + Frame */}
       <div className="relative w-[82px] h-[82px] flex items-center justify-center">
-        {player?.isActive ? (
+        {isActive ? (
           <>
             <Image
-              src={player.frame}
-              className="w-full flex shrink-0"
+              src={frame}
               width={82}
               height={82}
               alt="polygon-frame"
+              className="w-full flex shrink-0"
             />
-
             <Image
-              src={player.avatarUrl || ""}
+              src={avatarUrl}
               width={82}
               height={82}
+              alt={`profile-${displayName}`}
               className={cn(
-                "absolute inset-0 w-full -top-0.5 p-2 object-cover",
-                {
-                  "animate-pulse": player?.isLoading && player.isActive,
-                }
+                "absolute inset-0 -top-0.5 p-2 w-full object-cover",
+                { "animate-pulse": isLoading }
               )}
-              alt={`profile-${player?.displayName}`}
             />
           </>
         ) : (
           <Image
-            src="/icons/polygon-loader.svg"
-            className="w-full flex shrink-0 animate-spin-slow"
+            src={frame}
             width={82}
             height={82}
             alt="polygon-loader"
+            className="w-full flex shrink-0 animate-spin-slow"
           />
         )}
       </div>
 
+      {/* Name & Status */}
       <div className="my-5 space-y-1 flex flex-col items-center">
-        <p className="font-bold text-base">{player?.displayName}</p>
-        <p className="text-xs font-medium text-paragraph">
-          {player?.isActive ? "PICKING TOKENS..." : "WAITING FOR PLAYER"}
-        </p>
+        <p className="font-bold text-base">{displayName}</p>
+        <p className="text-xs font-medium text-paragraph">{statusText}</p>
       </div>
 
+      {/* Action Button */}
       <Button
-        variant={player?.buttonVariant}
+        variant={buttonVariant}
         className="flex justify-center items-center px-3.5 py-2 text-sm rounded-[10px] font-semibold mb-20"
       >
-        {player?.isActive ? "Place a bet" : "Join 100$"}
+        {actionText}
       </Button>
 
-      <div className="absolute -right-5 top-1/2 -translate-y-1/2">
-        {showSword && (
-          <div className="border-background/6 border-2 z-50 bg-[#1A1933] p-2 rounded-full">
-            <Image
-              src="/icons/sword.svg"
-              className="w-5 h-5"
-              width={20}
-              height={20}
-              alt="sword"
-            />
-          </div>
-        )}
-      </div>
+      {/* Sword icon */}
+      {showSword && (
+        <div className="absolute -right-5 top-1/2 -translate-y-1/2 z-50 p-2 rounded-full bg-[#1A1933] border-2 border-background/6">
+          <Image
+            src="/icons/sword.svg"
+            width={20}
+            height={20}
+            alt="sword"
+            className="w-5 h-5"
+          />
+        </div>
+      )}
     </div>
   );
 };
@@ -165,10 +175,9 @@ export default function GameLobby() {
       <div className="grid grid-cols-5 py-[22px] px-8">
         {players.map((player, index) => (
           <PlayerSlot
-            key={index}
-            player={player || undefined}
-            isWaiting={!player}
-            showSword={index < 4}
+            key={player?.id ?? index}
+            player={player ?? undefined}
+            showSword={index < players.length - 1}
           />
         ))}
       </div>
