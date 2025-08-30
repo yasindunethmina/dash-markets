@@ -32,7 +32,7 @@ export default function GameInfoPanel() {
             <p className="text-primary font-bold leading-[1.4] text-sm uppercase">
               WAITING
             </p>
-            <CountdownTimer startSeconds={15 * 60} />
+            <CountdownTimer startSeconds={15 * 60} repeat={true} />
           </div>
 
           {/* Stake */}

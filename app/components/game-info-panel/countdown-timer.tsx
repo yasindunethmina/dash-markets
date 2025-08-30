@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 type CountdownTimerProps = {
   startSeconds: number;
+  repeat?: boolean;
 };
 
 type TimeUnitProps = {
@@ -51,14 +52,23 @@ const TimeUnit = ({ value, prevValue, pad }: TimeUnitProps) => {
   );
 };
 
-export default function CountdownTimer({ startSeconds }: CountdownTimerProps) {
+export default function CountdownTimer({
+  startSeconds,
+  repeat = false,
+}: CountdownTimerProps) {
   const [timeLeft, setTimeLeft] = useState<number>(startSeconds);
   const prevTime = usePrevious<number>(timeLeft);
 
   useEffect(() => {
+    if (timeLeft === 0 && repeat) {
+      setTimeLeft(startSeconds);
+      return;
+    }
+    if (timeLeft === 0) return;
+
     const iv = setInterval(() => setTimeLeft((t) => Math.max(t - 1, 0)), 1000);
     return () => clearInterval(iv);
-  }, []);
+  }, [timeLeft, repeat, startSeconds]);
 
   const mins = Math.floor(timeLeft / 60);
   const secs = timeLeft % 60;
