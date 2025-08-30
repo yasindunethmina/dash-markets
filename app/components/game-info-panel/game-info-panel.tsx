@@ -1,6 +1,7 @@
 import { ChevronLeft } from "lucide-react";
 import Image from "next/image";
 import Button from "../shared/button";
+import CountdownTimer from "./countdown-timer";
 import SvgContainerInfo from "./svg-container-info";
 
 export default function GameInfoPanel() {
@@ -31,7 +32,7 @@ export default function GameInfoPanel() {
             <p className="text-primary font-bold leading-[1.4] text-sm uppercase">
               WAITING
             </p>
-            <p className="text-[22px] leading-[1.27] font-bold">1m 34s</p>
+            <CountdownTimer startSeconds={15 * 60} />
           </div>
 
           {/* Stake */}
