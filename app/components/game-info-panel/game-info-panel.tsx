@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Button from "../shared/button";
 import SvgContainerInfo from "./svg-container-info";
 
 export default function GameInfoPanel() {
@@ -47,10 +48,13 @@ export default function GameInfoPanel() {
 
           {/* Referral Link Button */}
           <div className="col-span-1 p-5 flex justify-end items-center">
-            <button className="flex justify-center items-center px-3.5 py-2.5 gap-1 leading-[1.43] text-sm font-semibold rounded-[10px] border border-cyan bg-cyan/4 text-cyan animate-cyan-glow">
+            <Button
+              variant="outline-cyan"
+              className="flex justify-center items-center px-3.5 py-2.5 gap-1 leading-[1.43] text-sm font-semibold rounded-[10px]"
+            >
               Referral link
               <Image src="/icons/copy.svg" width={18} height={18} alt="copy" />
-            </button>
+            </Button>
           </div>
         </div>
       </div>
