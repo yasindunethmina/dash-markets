@@ -1,5 +1,6 @@
 import { cn } from "@/lib/cn";
 import Image from "next/image";
+import AnimatedDots from "../game-info-panel/animated-dots";
 import Button from "../shared/button";
 import SvgContainerLobby from "./svg-container-lobby";
 
@@ -80,11 +81,10 @@ const PlayerSlot = ({ player, showSword = true }: PlayerSlotProps) => {
     buttonVariant = "primary",
   } = player || {};
 
-  const statusText = isActive ? "PICKING TOKENS..." : "WAITING FOR PLAYER";
   const actionText = isActive ? "Place a bet" : "Join 100$";
 
   return (
-    <div className="relative col-span-1 w-full flex flex-col items-center border-r border-background/6">
+    <div className="relative col-span-1 w-full flex flex-col items-center border-r border-background/6 last:border-r-0">
       {/* Sponsor badge */}
       <div
         className={cn(
@@ -134,13 +134,27 @@ const PlayerSlot = ({ player, showSword = true }: PlayerSlotProps) => {
       {/* Name & Status */}
       <div className="my-5 space-y-1 flex flex-col items-center">
         <p className="font-bold text-base">{displayName}</p>
-        <p className="text-xs font-medium text-paragraph">{statusText}</p>
+        <p
+          className={cn("text-xs font-medium text-paragraph", {
+            "flex items-center justify-end": isActive,
+            "animate-pulse": !isActive,
+          })}
+        >
+          {isActive ? (
+            <>
+              <span>PICKING TOKENS</span>
+              <AnimatedDots />
+            </>
+          ) : (
+            "WAITING FOR PLAYER"
+          )}
+        </p>
       </div>
 
       {/* Action Button */}
       <Button
         variant={buttonVariant}
-        className="flex justify-center items-center px-3.5 py-2 text-sm rounded-[10px] font-semibold mb-20"
+        className="flex justify-center items-center px-3.5 py-2 text-sm rounded-[10px] font-semibold mb-20 hover:scale-[102%] hover:-translate-y-0.5 active:scale-95 active:translate-y-0"
       >
         {actionText}
       </Button>

@@ -1,11 +1,18 @@
 import { shortenAddress } from "@/helpers/shorten-address";
 import Image from "next/image";
+import Link from "next/link";
+import { PiBellSimple } from "react-icons/pi";
 import Button from "./button";
 
 export default function MenuTop() {
   return (
     <div className="pt-5 px-5 flex justify-between items-center">
-      <h1 className="text-[21px] font-semibold">DASH MARKETS</h1>
+      <Link
+        href="/"
+        className="text-[21px] font-semibold font-poppins hover:text-primary/100 transition-colors duration-300"
+      >
+        DASH MARKETS
+      </Link>
 
       <div className="flex items-center gap-x-6">
         <div className="flex items-center gap-x-10 py-1 pl-3 pr-1 border border-background/10 rounded-[12px]">
@@ -41,14 +48,13 @@ export default function MenuTop() {
           </div>
         </div>
 
-        {/* Bell */}
-        <button className="relative">
-          <Image src="/icons/bell.svg" width={20} height={20} alt="bell" />
-          <div className="absolute -top-0.5 right-0 w-[11px] h-[11px] bg-[#FF9040] border-[2px] border-[#0F111D] rounded-full" />
+        <button className="relative transition-transform hover:scale-110 group">
+          <PiBellSimple className="w-[22px] h-[22px] text-tertiary group-hover:text-background transition-colors duration-300 bell-shake-interval" />
+          <div className="absolute -top-0.5 right-0 w-[11px] h-[11px] animate-pulse bg-[#FF9040] border-2 border-[#0F111D] rounded-full" />
         </button>
 
         {/* Profile */}
-        <div className="bg-background/13 flex items-center gap-x-1.5 py-2 pl-1.5 pr-2 rounded-full">
+        <div className="cursor-pointer group bg-background/13 flex items-center gap-x-1.5 py-2 pl-1.5 pr-2 rounded-full hover:bg-background/20 transition-colors duration-300">
           <Image
             src="/images/profile.png"
             className="rounded-full"

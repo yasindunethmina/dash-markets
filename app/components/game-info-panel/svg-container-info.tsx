@@ -1,7 +1,7 @@
 export default function SvgContainerInfo() {
   return (
     <svg
-      className="absolute inset-0 w-full h-full shadow-[0_4px_4px_0_rgba(0,0,0,0.25)]"
+      className="absolute inset-0 w-full h-full"
       viewBox="0 0 1042 83"
       preserveAspectRatio="none"
       fill="none"

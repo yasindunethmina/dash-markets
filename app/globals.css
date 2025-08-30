@@ -12,6 +12,7 @@
 }
 
 @layer utilities {
+  /* Button glow animation */
   @keyframes cyan-glow {
     0%,
     100% {
@@ -48,6 +49,7 @@
     }
   }
 
+  /* Button spin animation */
   @keyframes spin-slow {
     from {
       transform: rotate(0deg);
@@ -57,6 +59,7 @@
     }
   }
 
+  /* Button pulse animation */
   @keyframes pulse-slow {
     0% {
       opacity: 0.75;
@@ -69,6 +72,78 @@
     }
   }
 
+  /* Button bell shake animation */
+  @keyframes bell-shake {
+    0% {
+      transform: rotate(0deg);
+    }
+    2% {
+      transform: rotate(-15deg);
+    }
+    4% {
+      transform: rotate(10deg);
+    }
+    6% {
+      transform: rotate(-10deg);
+    }
+    7% {
+      transform: rotate(6deg);
+    }
+    7.5% {
+      transform: rotate(-4deg);
+    }
+    8% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  /* Button dot fade animation */
+  @keyframes dotFade {
+    0%,
+    80%,
+    100% {
+      opacity: 0.2;
+    }
+    40% {
+      opacity: 1;
+    }
+  }
+
+  /* Arrow button slide animation */
+  @keyframes slide-in-from-left {
+    from {
+      transform: translateX(-24px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-out-and-return {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(24px);
+      opacity: 0;
+    }
+    50.1% {
+      transform: translateX(-24px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  /* Button glow animation */
   .animate-cyan-glow {
     animation: cyan-glow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     will-change: box-shadow;
@@ -92,6 +167,50 @@
   .animate-pulse-slow {
     animation: pulse-slow 5s linear infinite;
     will-change: opacity;
+  }
+
+  /* bell shake animation */
+  .bell-shake-interval {
+    animation: bell-shake 5s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+  }
+
+  .group:hover .bell-shake-interval,
+  .group:hover .animate-pulse {
+    animation: none !important;
+  }
+
+  /* dot animation */
+  .dot-anim {
+    display: inline-block;
+    width: 0.25em;
+    height: 0.25em;
+    margin: 0 0.15em;
+    border-radius: 50%;
+    background: currentColor;
+    vertical-align: middle;
+    opacity: 0.2;
+  }
+
+  .dot-anim-1 {
+    animation: dotFade 1.2s infinite;
+    animation-delay: 0s;
+  }
+  .dot-anim-2 {
+    animation: dotFade 1.2s infinite;
+    animation-delay: 0.2s;
+  }
+  .dot-anim-3 {
+    animation: dotFade 1.2s infinite;
+    animation-delay: 0.4s;
+  }
+
+  .animate-slide-in {
+    animation: slide-in-from-left 0.3s ease-out forwards;
+    will-change: transform, opacity;
+  }
+  .animate-slide-out-and-return {
+    animation: slide-out-and-return 0.6s ease-out forwards;
+    will-change: transform, opacity;
   }
 }
 
@@ -117,6 +236,7 @@ button {
   outline: none;
   cursor: pointer;
 }
+
 /* Scrollbar */
 /* Scrollbar styles for WebKit browsers (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
@@ -125,8 +245,13 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
+  background: #ced7ff20;
   border-radius: 8px;
+  transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ced7ff30;
 }
 
 /* Optional: scrollbar track for better contrast */

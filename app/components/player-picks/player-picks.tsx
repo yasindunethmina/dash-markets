@@ -49,7 +49,7 @@ const PlayerPickCard = ({ playerPicks }: { playerPicks: PlayerPicksT }) => {
   const pickCount = picks.length;
 
   return (
-    <div className="col-span-1 rounded-[18px] border border-background/10 p-1.5">
+    <div className="col-span-1 rounded-[18px] border border-background/10 p-1.5 shadow-[0_4px_4px_0_rgba(0,0,0,0.25)]">
       <div className={cn("relative rounded-[12px] w-full", background, shadow)}>
         {/* Top accent bar with glow */}
         <div
@@ -89,6 +89,7 @@ const PlayerPickCard = ({ playerPicks }: { playerPicks: PlayerPicksT }) => {
           {/* Token picks list */}
           {Array.from({ length: TOTAL_SLOTS }).map((_, idx) => {
             const pick = picks[idx];
+
             return (
               <div
                 key={idx}
@@ -105,7 +106,7 @@ const PlayerPickCard = ({ playerPicks }: { playerPicks: PlayerPicksT }) => {
                         className="w-full h-full rounded-full object-cover"
                       />
                     ) : (
-                      <div className="w-full h-full rounded-full bg-background/10" />
+                      <div className="w-full h-full rounded-full bg-background/10 animate-pulse" />
                     )}
                   </div>
                   <p className="text-xs font-semibold">
@@ -170,7 +171,7 @@ export default function PlayerPicks() {
             key={idx}
             className="flex items-center justify-center col-span-1 rounded-[16px] bg-background/3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),inset_0_1px_0_0_rgba(255,255,255,0.02)] backdrop-blur-[3px]"
           >
-            <span className="text-xs font-medium text-paragraph uppercase">
+            <span className="text-xs font-medium text-paragraph uppercase animate-pulse">
               WAITING FOR PLAYER
             </span>
           </div>
