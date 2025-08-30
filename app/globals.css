@@ -124,7 +124,6 @@
     }
   }
 
-  /* Countdown timer animation */
   @keyframes slide-out-and-return {
     0% {
       transform: translateX(0);
@@ -144,6 +143,7 @@
     }
   }
 
+  /* Countdown timer animation */
   @keyframes drop-out {
     0% {
       transform: translateY(0%);

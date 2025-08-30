@@ -9,7 +9,7 @@ export default function MenuTop() {
     <div className="pt-5 px-5 flex justify-between items-center">
       <Link
         href="/"
-        className="text-[21px] font-semibold font-poppins hover:text-primary/100 transition-colors duration-300"
+        className="text-[21px] font-semibold font-poppins hover:text-zinc-200 transition-colors duration-300"
       >
         DASH MARKETS
       </Link>
