@@ -4,6 +4,8 @@
   --font-poppins: "Poppins", sans-serif;
   --font-bai-jamjuree: "Bai Jamjuree", sans-serif;
   --color-primary: #7852ff;
+  --color-paragraph: #9c9eb3;
+  --color-pink: #ff52e8;
   --color-tertiary: #606481;
   --color-background: #ced7ff;
   --color-cyan: #10f9fe;
@@ -13,12 +15,10 @@
   @keyframes cyan-glow {
     0%,
     100% {
-      /* subtle at start/end */
-      box-shadow: 0 0 2px rgba(16, 249, 254, 0.5),
-        0 0 4px rgba(16, 249, 254, 0.3);
+      box-shadow: 0 0 5px rgba(16, 249, 254, 0.5),
+        0 0 10px rgba(16, 249, 254, 0.3);
     }
     50% {
-      /* peak of the glow */
       box-shadow: 0 0 10px rgba(16, 249, 254, 0.5),
         0 0 20px rgba(16, 249, 254, 0.3);
     }
@@ -27,8 +27,8 @@
   @keyframes pink-glow {
     0%,
     100% {
-      box-shadow: 0 0 2px rgba(255, 82, 232, 0.5),
-        0 0 4px rgba(255, 82, 232, 0.3);
+      box-shadow: 0 0 5px rgba(255, 82, 232, 0.5),
+        0 0 10px rgba(255, 82, 232, 0.3);
     }
     50% {
       box-shadow: 0 0 10px rgba(255, 82, 232, 0.5),
@@ -39,8 +39,8 @@
   @keyframes purple-glow {
     0%,
     100% {
-      box-shadow: 0 0 2px rgba(127, 17, 224, 0.5),
-        0 0 4px rgba(127, 17, 224, 0.3);
+      box-shadow: 0 0 5px rgba(127, 17, 224, 0.5),
+        0 0 10px rgba(127, 17, 224, 0.3);
     }
     50% {
       box-shadow: 0 0 10px rgba(127, 17, 224, 0.5),

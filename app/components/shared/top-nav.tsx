@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export function TopNav() {
+export default function TopNav() {
   return (
     <div className="flex gap-x-11 items-center">
       {/* Left Divider and Icon */}

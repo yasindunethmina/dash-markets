@@ -5,14 +5,14 @@ type TokenPickT = {
   id: string;
   name: string;
   symbol: string;
-  iconUrl?: string;
+  avatarUrl?: string;
 };
 
 type PlayerPicksT = {
   playerId: string;
   playerName: string;
-  polygonIcon: string;
-  profileIcon?: string;
+  frame: string;
+  avatarUrl?: string;
   accentColor: "primary" | "pink";
   picks: TokenPickT[];
 };
@@ -67,21 +67,19 @@ const PlayerPickCard = ({ playerPicks }: PlayerPickCardProps) => {
             <div className="relative w-[22px] h-[22px] flex items-center justify-center">
               {/* Polygon Frame */}
               <Image
-                src={playerPicks.polygonIcon}
+                src={playerPicks.frame}
                 className="w-full flex shrink-0"
                 width={22}
                 height={22}
                 alt="polygon-frame"
               />
-
-              {/* Profile Icon */}
-              {playerPicks.profileIcon && (
+              {playerPicks.avatarUrl && (
                 <Image
-                  src={playerPicks.profileIcon}
+                  src={playerPicks.avatarUrl}
                   className="absolute inset-0 w-full p-1 object-cover"
                   width={22}
                   height={22}
-                  alt={`polygon-${playerPicks.playerId}`}
+                  alt={`profile-${playerPicks.playerName}`}
                 />
               )}
             </div>
@@ -102,9 +100,9 @@ const PlayerPickCard = ({ playerPicks }: PlayerPickCardProps) => {
               >
                 <div className="flex justify-between gap-x-1.5 items-center">
                   <div className="w-5 h-5 flex items-center justify-center">
-                    {pick?.iconUrl ? (
+                    {pick?.avatarUrl ? (
                       <Image
-                        src={pick.iconUrl}
+                        src={pick.avatarUrl}
                         width={20}
                         height={20}
                         alt={pick.name}
@@ -120,7 +118,7 @@ const PlayerPickCard = ({ playerPicks }: PlayerPickCardProps) => {
                   </p>
                 </div>
 
-                <p className="text-xs font-semibold text-[#9C9EB3]">
+                <p className="text-xs font-semibold text-paragraph">
                   {pick?.symbol || "BTC"}
                 </p>
               </div>
@@ -132,13 +130,13 @@ const PlayerPickCard = ({ playerPicks }: PlayerPickCardProps) => {
   );
 };
 
-export const PlayerPicksSection = () => {
+export default function PlayerPicksSection() {
   const playerPicks: PlayerPicksT[] = [
     {
       playerId: "1",
       playerName: "David",
-      polygonIcon: "/icons/polygon-small-1.svg",
-      profileIcon: "/icons/polygon-profile-1.svg",
+      frame: "/icons/hexagon-frame-pink-small.svg",
+      avatarUrl: "/icons/polygon-profile-1.svg",
       accentColor: "pink",
       picks: [
         { id: "1", name: "Bitcoin", symbol: "BTC" },
@@ -151,7 +149,7 @@ export const PlayerPicksSection = () => {
     {
       playerId: "2",
       playerName: "Player 2",
-      polygonIcon: "/icons/polygon-small-2.svg",
+      frame: "/icons/hexagon-frame-purple-small.svg",
       accentColor: "primary",
       picks: [
         { id: "1", name: "Bitcoin", symbol: "BTC" },
@@ -179,7 +177,7 @@ export const PlayerPicksSection = () => {
             key={index}
             className="flex items-center justify-center col-span-1 rounded-[16px] bg-background/3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),inset_0_1px_0_0_rgba(255,255,255,0.02)] backdrop-blur-[3px]"
           >
-            <span className="text-xs font-medium text-[#9C9EB3] uppercase">
+            <span className="text-xs font-medium text-paragraph uppercase">
               WAITING FOR PLAYER
             </span>
           </div>
@@ -187,4 +185,4 @@ export const PlayerPicksSection = () => {
       </div>
     </div>
   );
-};
+}

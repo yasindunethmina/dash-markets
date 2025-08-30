@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export function RoomChatPanel() {
+export default function RoomChatPanel() {
   return (
     <div className="w-[325px] py-5 px-6 space-y-5">
       {/* Header */}
@@ -37,7 +37,7 @@ export function RoomChatPanel() {
               <div className="space-y-1">
                 <div className="flex items-center gap-x-1.5">
                   <div className="w-4 h-4 rounded-sm bg-background/10" />
-                  <p className="text-[#9C9EB3] text-xs">Username</p>
+                  <p className="text-paragraph text-xs">Username</p>
                 </div>
 
                 <p className="text-base font-medium">Message</p>
