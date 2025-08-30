@@ -25,7 +25,7 @@ const PlayerSlot = ({
 }: PlayerSlotProps) => {
   if (isWaiting) {
     return (
-      <div className="relative col-span-1 flex flex-col items-center justify-center h-[88.5%]">
+      <div className="relative col-span-1 flex flex-col items-center justify-center top-0.5 h-[88.5%]">
         <div className="w-full h-full flex flex-col justify-center items-center">
           {/* Hidden sponsor badge for consistent spacing */}
           <div className="rounded-sm text-xs opacity-0 font-semibold bg-primary/10 text-primary leading-[1.5] px-2 py-1 mb-[38px]">
@@ -58,7 +58,7 @@ const PlayerSlot = ({
 
           {/* Sword icon */}
           {showSword && (
-            <div className="absolute -right-5 border-background/[6%] border-2 z-50 bg-[#1A1933] p-2 rounded-full">
+            <div className="absolute -right-5 border-background/6 border-2 z-50 bg-[#1A1933] p-2 rounded-full">
               <Image
                 src="/icons/sword.svg"
                 className="w-5 h-5"
@@ -77,13 +77,13 @@ const PlayerSlot = ({
 
   const getButtonStyles = (color: "primary" | "pink" = "primary") => {
     if (color === "pink") {
-      return "border border-[#FF52E8] bg-[#FF52E8]/[4%] font-semibold text-[#FF52E8] [box-shadow:0_0_16.4px_0_rgba(255,82,232,0.20),0_0_18.9px_0_rgba(255,82,232,0.20)_inset]";
+      return "border border-[#FF52E8] bg-[#FF52E8]/4 font-semibold text-[#FF52E8] [box-shadow:0_0_16.4px_0_rgba(255,82,232,0.20),0_0_18.9px_0_rgba(255,82,232,0.20)_inset]";
     }
-    return "border border-primary bg-primary/[4%] font-semibold text-primary [box-shadow:0_0_16.4px_0_rgba(127,17,224,0.2),0_0_18.9px_0_rgba(127,17,224,0.2)_inset] animate-purple-glow";
+    return "border border-primary bg-primary/4 font-semibold text-primary [box-shadow:0_0_16.4px_0_rgba(127,17,224,0.2),0_0_18.9px_0_rgba(127,17,224,0.2)_inset] animate-purple-glow";
   };
 
   return (
-    <div className="relative col-span-1 flex flex-col items-center justify-center h-[88.5%]">
+    <div className="relative col-span-1 flex flex-col items-center justify-center top-0.5 h-[88.5%]">
       <div className="w-full h-full flex flex-col justify-center items-center">
         {/* Sponsor badge */}
         <div
@@ -129,7 +129,7 @@ const PlayerSlot = ({
 
         {/* Sword icon */}
         {showSword && (
-          <div className="absolute -right-5 border-background/[6%] border-2 z-50 bg-[#1A1933] p-2 rounded-full">
+          <div className="absolute -right-5 border-background/6 border-2 z-50 bg-[#1A1933] p-2 rounded-full">
             <Image
               src="/icons/sword.svg"
               className="w-5 h-5"
@@ -173,15 +173,208 @@ export const GameLobbySection = () => {
   ];
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full" style={{ height: "400px" }}>
       {/* Background overlay */}
-      <Image
-        src="/images/lobby-overlay-new.svg"
-        className="w-full object-cover"
-        alt="lobby-overlay"
-        width={1000}
-        height={1000}
-      />
+      <svg
+        className="absolute inset-0 w-full h-full"
+        viewBox="0 0 1050 407"
+        preserveAspectRatio="none"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1006.65 5.5L1007.26 5.50781H1007.27C1013.73 5.66844 1019.9 8.3065 1024.48 12.8906L1037.11 25.5176C1041.84 30.2496 1044.5 36.6684 1044.5 43.3604V363.64L1044.49 364.254V364.26C1044.33 370.725 1041.69 376.891 1037.11 381.476L1024.48 394.109C1019.89 398.693 1013.72 401.332 1007.26 401.492H1007.25L1006.64 401.5H43.3613C36.6694 401.5 30.2506 398.841 25.5186 394.109L12.8906 381.481C8.30649 376.897 5.66844 370.731 5.50781 364.266V364.26L5.5 363.646V43.3643L5.50781 42.7373C5.66849 36.2725 8.30657 30.1055 12.8906 25.5215L25.5215 12.8906C30.2535 8.1586 36.6723 5.50019 43.3643 5.5H1006.65Z"
+          stroke="#CED7FF"
+          strokeOpacity="0.1"
+        />
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M1006.64 16C1010.55 16.0001 1014.29 17.5525 1017.06 20.3154L1029.68 32.9424C1032.45 35.7053 1034 39.453 1034 43.3604V363.633C1034 367.54 1032.45 371.288 1029.68 374.051L1017.05 386.685C1014.29 389.448 1010.54 391 1006.63 391H43.3613C39.454 391 35.7063 389.448 32.9434 386.685L20.3154 374.057C17.5525 371.294 16.0001 367.546 16 363.639V43.3643C16.0001 39.4569 17.5525 35.7092 20.3154 32.9463L32.9463 20.3154C35.7092 17.5525 39.4569 16.0001 43.3643 16H1006.64Z"
+          fill="#CED7FF"
+          fillOpacity="0.06"
+        />
+        <path
+          d="M1026.15 36.4783C1027.97 38.3036 1029 40.7793 1029 43.3608V363.632C1029 366.214 1027.97 368.69 1026.15 370.515L1013.51 383.149C1011.69 384.975 1009.21 386 1006.63 386H43.3618C40.7803 386 38.3046 384.975 36.4793 383.149L23.8508 370.521C22.0255 368.695 21 366.22 21 363.638V43.3647C21 40.7832 22.0255 38.3075 23.8508 36.4822L36.4822 23.8508C38.3075 22.0255 40.7832 21 43.3647 21H1006.64C1009.22 21 1011.7 22.0255 1013.52 23.8508L1026.15 36.4783Z"
+          fill="#080A18"
+          fillOpacity="0.48"
+        />
+        <g opacity="0.36">
+          <mask
+            id="mask0_0_1447"
+            style={{ maskType: "alpha" }}
+            maskUnits="userSpaceOnUse"
+            x="21"
+            y="21"
+            width="1008"
+            height="365"
+          >
+            <path
+              d="M1026.15 36.4783C1027.97 38.3036 1029 40.7793 1029 43.3608V363.632C1029 366.214 1027.97 368.69 1026.15 370.515L1013.51 383.149C1011.69 384.975 1009.21 386 1006.63 386H43.3618C40.7803 386 38.3046 384.975 36.4793 383.149L23.8508 370.521C22.0255 368.695 21 366.22 21 363.638V43.3647C21 40.7832 22.0255 38.3075 23.8508 36.4822L36.4822 23.8508C38.3075 22.0255 40.7832 21 43.3647 21H1006.64C1009.22 21 1011.7 22.0255 1013.52 23.8508L1026.15 36.4783Z"
+              fill="#080A18"
+            />
+          </mask>
+          <g mask="url(#mask0_0_1447)">
+            <rect
+              x="21"
+              y="20"
+              width="1008"
+              height="87"
+              fill="url(#paint0_linear_0_1447)"
+              fillOpacity="0.82"
+            />
+            <rect
+              x="1029"
+              y="386"
+              width="1008"
+              height="87"
+              transform="rotate(-180 1029 386)"
+              fill="url(#paint1_linear_0_1447)"
+              fillOpacity="0.82"
+            />
+          </g>
+        </g>
+        <path d="M25 13L13 25" stroke="#7852FF" strokeWidth="2" />
+        <g
+          style={{ mixBlendMode: "plus-lighter" }}
+          opacity="0.9"
+          filter="url(#filter0_f_0_1447)"
+        >
+          <path d="M25 13L13 25" stroke="#7852FF" strokeWidth="2" />
+        </g>
+        <path d="M13 382L25 394" stroke="#7852FF" strokeWidth="2" />
+        <g
+          style={{ mixBlendMode: "plus-lighter" }}
+          opacity="0.9"
+          filter="url(#filter1_f_0_1447)"
+        >
+          <path d="M13 382L25 394" stroke="#7852FF" strokeWidth="2" />
+        </g>
+        <path d="M1025 13L1037 25" stroke="#7852FF" strokeWidth="2" />
+        <g
+          style={{ mixBlendMode: "plus-lighter" }}
+          opacity="0.9"
+          filter="url(#filter2_f_0_1447)"
+        >
+          <path d="M1025 13L1037 25" stroke="#7852FF" strokeWidth="2" />
+        </g>
+        <path d="M1037 382L1025 394" stroke="#7852FF" strokeWidth="2" />
+        <g
+          style={{ mixBlendMode: "plus-lighter" }}
+          opacity="0.9"
+          filter="url(#filter3_f_0_1447)"
+        >
+          <path d="M1037 382L1025 394" stroke="#7852FF" strokeWidth="2" />
+        </g>
+        <defs>
+          <filter
+            id="filter0_f_0_1447"
+            x="-0.00710773"
+            y="-0.00710773"
+            width="38.0142"
+            height="38.0142"
+            filterUnits="userSpaceOnUse"
+            colorInterpolationFilters="sRGB"
+          >
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="BackgroundImageFix"
+              result="shape"
+            />
+            <feGaussianBlur
+              stdDeviation="6.15"
+              result="effect1_foregroundBlur_0_1447"
+            />
+          </filter>
+          <filter
+            id="filter1_f_0_1447"
+            x="-0.00710773"
+            y="368.993"
+            width="38.0142"
+            height="38.0142"
+            filterUnits="userSpaceOnUse"
+            colorInterpolationFilters="sRGB"
+          >
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="BackgroundImageFix"
+              result="shape"
+            />
+            <feGaussianBlur
+              stdDeviation="6.15"
+              result="effect1_foregroundBlur_0_1447"
+            />
+          </filter>
+          <filter
+            id="filter2_f_0_1447"
+            x="1011.99"
+            y="-0.00710773"
+            width="38.0143"
+            height="38.0142"
+            filterUnits="userSpaceOnUse"
+            colorInterpolationFilters="sRGB"
+          >
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="BackgroundImageFix"
+              result="shape"
+            />
+            <feGaussianBlur
+              stdDeviation="6.15"
+              result="effect1_foregroundBlur_0_1447"
+            />
+          </filter>
+          <filter
+            id="filter3_f_0_1447"
+            x="1011.99"
+            y="368.993"
+            width="38.0143"
+            height="38.0142"
+            filterUnits="userSpaceOnUse"
+            colorInterpolationFilters="sRGB"
+          >
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="BackgroundImageFix"
+              result="shape"
+            />
+            <feGaussianBlur
+              stdDeviation="6.15"
+              result="effect1_foregroundBlur_0_1447"
+            />
+          </filter>
+          <linearGradient
+            id="paint0_linear_0_1447"
+            x1="525"
+            y1="107"
+            x2="525"
+            y2="20"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stopColor="#070915" stopOpacity="0" />
+            <stop offset="1" stopColor="#070915" />
+          </linearGradient>
+          <linearGradient
+            id="paint1_linear_0_1447"
+            x1="1533"
+            y1="473"
+            x2="1533"
+            y2="386"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stopColor="#070915" stopOpacity="0" />
+            <stop offset="1" stopColor="#070915" />
+          </linearGradient>
+        </defs>
+      </svg>
 
       {/* Radial glow effect */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

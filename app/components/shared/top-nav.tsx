@@ -4,10 +4,10 @@ export function TopNav() {
   return (
     <div className="flex gap-x-11 items-center">
       {/* Left Divider and Icon */}
-      <div className="flex gap-x-5 w-4/12 shrink-0">
+      <div className="flex gap-x-5 w-[33%] shrink-0">
         <div className="w-full flex items-end">
-          <div className="bg-background/10 h-[1px] flex-1"></div>
-          <div className="bg-background/10 rotate-[210deg] w-[1px] h-6 left-[5px] top-[1px] relative"></div>
+          <div className="bg-background/10 h-[1px] flex-1" />
+          <div className="bg-background/10 rotate-[210deg] w-[1px] h-5 left-[5px] top-[1px] relative" />
         </div>
         <Image
           src="/icons/subtract.svg"
@@ -37,8 +37,8 @@ export function TopNav() {
           alt="subtract"
         />
         <div className="w-full flex items-end">
-          <div className="bg-background/10 -rotate-[210deg] w-[1px] h-6 -left-[5px] top-[1px] relative"></div>
-          <div className="bg-background/10 h-[1px] flex-1"></div>
+          <div className="bg-background/10 -rotate-[210deg] w-[1px] h-5 -left-[5px] top-[1px] relative" />
+          <div className="bg-background/10 h-[1px] flex-1" />
         </div>
       </div>
     </div>

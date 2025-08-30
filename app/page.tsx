@@ -10,11 +10,12 @@ export default function Home() {
       <TopNav />
 
       <div className="flex divide-x divide-background/10 w-full">
-        <div className="flex-1 px-8 pt-5 space-y-5">
+        <div className="flex-1 px-8 pt-[18px] space-y-[18px]">
           <GameInfoPanel />
           <GameLobbySection />
           <PlayerPicksSection />
         </div>
+
         <RoomChatPanel />
       </div>
     </main>

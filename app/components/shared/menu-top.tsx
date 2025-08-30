@@ -4,11 +4,11 @@ import Button from "./button";
 
 export default function MenuTop() {
   return (
-    <div className="pt-4 px-5 flex justify-between items-center">
+    <div className="pt-5 px-5 flex justify-between items-center">
       <h1 className="text-[21px] font-semibold">DASH MARKETS</h1>
 
       <div className="flex items-center gap-x-6">
-        <div className="flex items-center gap-x-10 py-1 pl-3 pr-1 border-2 border-background/10 rounded-[12px]">
+        <div className="flex items-center gap-x-10 py-1 pl-3 pr-1 border border-background/10 rounded-[12px]">
           <div className="flex items-center gap-x-1.5">
             <Image
               src="/icons/tether.svg"
@@ -29,7 +29,7 @@ export default function MenuTop() {
               />
             </button>
 
-            <Button className="flex items-center text-sm font-semibold leading-[20px] gap-x-1.5 py-2.5 px-3 rounded-[10px]">
+            <Button className="flex items-center text-sm font-semibold gap-x-1.5 py-2.5 pl-3 pr-3.5 rounded-[10px]">
               <Image
                 src="/icons/wallet.svg"
                 width={16}
@@ -44,7 +44,7 @@ export default function MenuTop() {
         {/* Bell */}
         <button className="relative">
           <Image src="/icons/bell.svg" width={20} height={20} alt="bell" />
-          <div className="absolute -top-0.5 right-0 w-3.5 h-3.5 bg-[#FF9040] border-4 border-[#0F111D] rounded-full animate-pulse" />
+          <div className="absolute -top-0.5 right-0 w-[11px] h-[11px] bg-[#FF9040] border-[2px] border-[#0F111D] rounded-full" />
         </button>
 
         {/* Profile */}

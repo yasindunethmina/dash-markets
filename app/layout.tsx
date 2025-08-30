@@ -33,7 +33,7 @@ export default function RootLayout({
       >
         <Image
           src="/images/top-overlay.png"
-          className="fixed top-0 left-0 w-full h-full pointer-events-none animate-pulse-slow"
+          className="fixed top-0 left-0 w-full h-full pointer-events-none z-40"
           alt="top-overlay"
           width={1000}
           height={1000}
